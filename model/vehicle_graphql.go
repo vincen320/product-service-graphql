@@ -14,5 +14,8 @@ var (
 				Type: graphql.Int,
 			},
 		},
+		Interfaces: []*graphql.Interface{
+			ProductInterface,
+		},
 	})
 )
