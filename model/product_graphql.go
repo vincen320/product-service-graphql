@@ -19,6 +19,12 @@ var (
 			"price": &graphql.Field{
 				Type: graphql.Int,
 			},
+			"created_by": &graphql.Field{
+				Type: graphql.Int,
+			},
+			"created_at": &graphql.Field{
+				Type: graphql.DateTime,
+			},
 		},
 	})
 )
