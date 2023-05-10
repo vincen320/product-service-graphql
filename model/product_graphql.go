@@ -5,7 +5,7 @@ import "github.com/graphql-go/graphql"
 var (
 	ProductInterface = graphql.NewInterface(graphql.InterfaceConfig{
 		Name:        "product",
-		Description: "product is a information of the item",
+		Description: "product is a information of the item, mandatory attribute for all product",
 		Fields: graphql.Fields{
 			"id": &graphql.Field{
 				Type: graphql.Int,
