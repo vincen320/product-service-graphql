@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS products(
     "id" bigserial PRIMARY KEY,
     "name" varchar,
     "description" int,
-    "price" varchar,
+    "price" bigint,
     "created_by" bigint,
     "created_at" timestamp
 );
