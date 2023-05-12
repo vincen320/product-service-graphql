@@ -1,6 +1,8 @@
 package model
 
-import "github.com/graphql-go/graphql"
+import (
+	"github.com/graphql-go/graphql"
+)
 
 var (
 	ProductInterface = graphql.NewInterface(graphql.InterfaceConfig{
@@ -25,6 +27,17 @@ var (
 			"created_at": &graphql.Field{
 				Type: graphql.DateTime,
 			},
+		},
+		ResolveType: func(p graphql.ResolveTypeParams) *graphql.Object {
+			if product, ok := p.Value.(Product); ok {
+				switch product.Type {
+				case ProductTypeCloth:
+					return ClothType
+				case ProdcutTypeVehicle:
+					return VehicleType
+				}
+			}
+			return nil
 		},
 	})
 )

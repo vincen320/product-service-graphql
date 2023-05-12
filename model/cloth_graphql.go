@@ -7,6 +7,24 @@ var (
 		Name:        "cloth",
 		Description: "object of cloth, mandatory attributes for cloth",
 		Fields: graphql.Fields{
+			"id": &graphql.Field{
+				Type: graphql.Int,
+			},
+			"name": &graphql.Field{
+				Type: graphql.String,
+			},
+			"description": &graphql.Field{
+				Type: graphql.String,
+			},
+			"price": &graphql.Field{
+				Type: graphql.Int,
+			},
+			"created_by": &graphql.Field{
+				Type: graphql.Int,
+			},
+			"created_at": &graphql.Field{
+				Type: graphql.DateTime,
+			},
 			"mataerial": &graphql.Field{
 				Type: graphql.String,
 			},
