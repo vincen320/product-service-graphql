@@ -7,11 +7,11 @@ CREATE TABLE IF NOT EXISTS products(
     "created_at" timestamp
 );
 
-CREATE TABLE IF NOT EXISTS product_attributes{
+CREATE TABLE IF NOT EXISTS product_attributes(
     "id" bigserial PRIMARY KEY,
-    "product_id" bigint REFERENCES products(id)
+    "product_id" bigint REFERENCES products(id),
     "attribute" varchar,
     "value" varchar
-}
+)
 
 CREATE INDEX ON products(name)
