@@ -25,7 +25,7 @@ var (
 			"created_at": &graphql.Field{
 				Type: graphql.DateTime,
 			},
-			"mataerial": &graphql.Field{
+			"material": &graphql.Field{
 				Type: graphql.String,
 			},
 			"size": &graphql.Field{
