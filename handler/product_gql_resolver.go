@@ -20,8 +20,7 @@ func (pr *productGQLHandler) GetAllProducts() *graphql.Field {
 	return &graphql.Field{
 		Type: graphql.NewList(model.ProductInterface),
 		Resolve: func(p graphql.ResolveParams) (response interface{}, err error) {
-			response, err = pr.productUseCase.FindAllProducts(p.Context)
-			return
+			return pr.productUseCase.FindAllProducts(p.Context)
 		},
 	}
 }
