@@ -13,7 +13,7 @@ type productRepository struct {
 	db *sql.DB
 }
 
-func newProductRepository(db *sql.DB) ProductRepository {
+func NewProductRepository(db *sql.DB) ProductRepository {
 	return &productRepository{
 		db: db,
 	}
@@ -27,6 +27,7 @@ func (p *productRepository) FindAllProducts(ctx context.Context) (response []mod
 			, price
 			, created_by
 			, created_at
+			, "type"
 		FROM products p
 		ORDER BY id `,
 	)
@@ -47,6 +48,7 @@ func (p *productRepository) FindAllProducts(ctx context.Context) (response []mod
 			&product.Price,
 			&product.CreatedBy,
 			&product.CreatedAt,
+			&product.Type,
 		); err != nil {
 			err = cError.New(http.StatusInternalServerError, "internal server error", err.Error())
 			return

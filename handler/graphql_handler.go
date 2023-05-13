@@ -11,18 +11,18 @@ import (
 	responseModel "github.com/vincen320/product-service-graphql/model/response"
 )
 
-type graphQLHAndler struct {
+type graphQLHandler struct {
 	graphqlSchema graphql.Schema
 }
 
-func NewGraphqlHAndler(
-	graphqlSchema graphql.Schema) *graphQLHAndler {
-	return &graphQLHAndler{
+func NewGraphqlHandler(
+	graphqlSchema graphql.Schema) *graphQLHandler {
+	return &graphQLHandler{
 		graphqlSchema: graphqlSchema,
 	}
 }
 
-func (g *graphQLHAndler) GraphQL(c echo.Context) (err error) {
+func (g *graphQLHandler) GraphQL(c echo.Context) (err error) {
 	var request model.GraphQLRequest
 	err = c.Bind(&request)
 	if err != nil {
