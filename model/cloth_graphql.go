@@ -1,8 +1,14 @@
 package model
 
-import "github.com/graphql-go/graphql"
+import (
+	"github.com/graphql-go/graphql"
+)
 
 var (
+	ClothType *graphql.Object
+)
+
+func init() {
 	ClothType = graphql.NewObject(graphql.ObjectConfig{
 		Name:        "cloth",
 		Description: "object of cloth, mandatory attributes for cloth",
@@ -27,13 +33,25 @@ var (
 			},
 			"material": &graphql.Field{
 				Type: graphql.String,
+				Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+					if _, ok := p.Source.(Product); ok {
+						return "query", nil
+					}
+					return "", nil
+				},
 			},
 			"size": &graphql.Field{
 				Type: graphql.String,
+				Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+					if _, ok := p.Source.(Product); ok {
+						return "query", nil
+					}
+					return "", nil
+				},
 			},
 		},
 		Interfaces: []*graphql.Interface{
 			ProductInterface,
 		},
 	})
-)
+}
